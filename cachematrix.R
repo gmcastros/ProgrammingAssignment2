@@ -30,6 +30,7 @@ cachemean <- function(x, ...) {
 
 ## Write a short comment describing this function
 ## Here we need to store or cache the matrix
+## This works with square matrixes.
 
 makeCacheMatrix <- function(x = matrix()) {
   
@@ -43,6 +44,7 @@ makeCacheMatrix <- function(x = matrix()) {
   
   get <- function() x
   
+  #use the inverse function to change the matrix.
   setinverse <- function(inverse) m <<- inverse
   getinverse <- function() m
   list (set = set, get = get, setinverse = setinverse, getinverse = getinverse)
@@ -51,6 +53,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
+## Get the matrix from cache.
+## Use solve, see professor's comments about this.
+## If the inverse has already been calculated (and the matrix has not changed)
+##, then cacheSolve should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
